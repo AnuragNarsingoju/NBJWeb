@@ -691,7 +691,7 @@ const Screenshots = () => {
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-10 lg:mb-12 leading-relaxed max-w-3xl mx-auto font-light tracking-wide">
                 Schedule a personalized demo to see how our comprehensive jewelry management system can streamline your operations and boost your sales.
               </p>
-              <button className="relative bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-2xl lg:rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-2xl group text-lg sm:text-xl overflow-hidden shadow-2xl">
+              <button className="relative bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-2xl lg:rounded-3xl transition-all duration-500 hover:scale-110 hover:shadow-2xl group text-lg sm:text-xl overflow-hidden shadow-2xl" onClick={() => window.location.href = '#contact'}>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 <span className="relative flex items-center">
