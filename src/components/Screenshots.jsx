@@ -9,84 +9,84 @@ const Screenshots = () => {
 
   const screens = [
     {
-      title: "Gold Management System",
-      description: "Complete gold inventory and transaction management",
-      icon: Star,
-      color: "from-yellow-500 to-yellow-600",
-      bgColor: "from-yellow-500/20 to-yellow-600/20",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      features: [
-        {
-          title: "Gold Entry",
-          description: "Add new gold items with barcode scanning or manual entry with flexible pricing and weight management.",
-          icon: Star,
-          color: "from-yellow-500 to-yellow-600",
-          bgColor: "from-yellow-500/20 to-yellow-600/20",
-          details: [
-            "You can add new gold items in two ways: by scanning the barcode (the system will automatically calculate weight and price) or by entering details manually.",
-            "You can manually set or update details like price, weight, and making charges.",
-            "If needed, you can make changes anytime before finalizing the sale."
-          ]
-        },
-        {
-          title: "Old Gold Purchase",
-          description: "Easily buy old gold from customers and adjust it against their new purchase bill.",
-          icon: Smartphone,
-          color: "from-amber-500 to-amber-600",
-          bgColor: "from-amber-500/20 to-amber-600/20",
-          details: [
-            "The system allows you to purchase old gold from customers.",
-            "The value of the old gold will be deducted directly from the new purchase amount, so the customer pays less."
-          ]
-        },
-        {
-          title: "Bills & Invoices",
-          description: "Generate different types of bills as per customer needs – estimation, retail, or GST.",
-          icon: Tablet,
-          color: "from-blue-500 to-blue-600",
-          bgColor: "from-blue-500/20 to-blue-600/20",
-          details: [
-            "You can provide different types of bills depending on customer needs.",
-            "Estimation Bill: A rough cost idea for the customer before purchase.",
-            "Retail Bill: A normal sales bill without GST.",
-            "GST Bill: A bill with GST details for customers who request it."
-          ]
-        },
-        {
-          title: "Smart Payment",
-          description: "Enable instant payments with auto-generated UPI QR codes for each sale.",
-          icon: Zap,
-          color: "from-green-500 to-green-600",
-          bgColor: "from-green-500/20 to-green-600/20",
-          details: [
-            "The system can show a UPI QR code based on the final price entered.",
-            "Customers just scan the QR code and pay instantly from their mobile UPI apps."
-          ]
-        },
-        {
-          title: "Sales & Stock Management",
-          description: "Automatically track all sales, customers, and stock updates in real-time.",
-          icon: Monitor,
-          color: "from-purple-500 to-purple-600",
-          bgColor: "from-purple-500/20 to-purple-600/20",
-          details: [
-            "Every time you sell an item, the system saves the customer details, item details, and the date and time of the purchase automatically.",
-            "The sold item will be removed from stock so you always know what is available in the shop."
-          ]
-        },
-        {
-          title: "Returns",
-          description: "Easily handle customer returns with automatic stock updates.",
-          icon: Smartphone,
-          color: "from-red-500 to-red-600",
-          bgColor: "from-red-500/20 to-red-600/20",
-          details: [
-            "If a customer returns an item, the system makes it very easy to handle.",
-            "The returned item will be automatically added back to the stock so your inventory stays correct."
-          ]
-        }
+  "title": "Gold Management System",
+  "description": "A simple and complete solution to manage gold stock, sales, purchases, billing, and payments all in one place.",
+  "icon": "Star",
+  "color": "from-yellow-500 to-yellow-600",
+  "bgColor": "from-yellow-500/20 to-yellow-600/20",
+  "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  "features": [
+    {
+      "title": "Gold Entry",
+      "description": "Add gold items quickly using barcode scanning or enter details manually with full control over pricing and charges.",
+      "icon": "Star",
+      "color": "from-yellow-500 to-yellow-600",
+      "bgColor": "from-yellow-500/20 to-yellow-600/20",
+      "details": [
+        "Add gold items by scanning a barcode – the system will automatically calculate weight and price.",
+        "Manually enter or update details like weight, price, and making charges if needed.",
+        "Easily edit or correct details anytime before completing the sale."
       ]
     },
+    {
+      "title": "Old Gold Purchase",
+      "description": "Buy old gold from customers and adjust its value against their new purchase bill automatically.",
+      "icon": "Smartphone",
+      "color": "from-amber-500 to-amber-600",
+      "bgColor": "from-amber-500/20 to-amber-600/20",
+      "details": [
+        "Accept old gold from customers as part of a new purchase.",
+        "The system deducts the value of old gold from the customer’s total bill instantly, reducing the amount they pay."
+      ]
+    },
+    {
+      "title": "Bills & Invoices",
+      "description": "Easily generate the exact type of bill your customer needs – estimation, retail, or GST included.",
+      "icon": "Tablet",
+      "color": "from-blue-500 to-blue-600",
+      "bgColor": "from-blue-500/20 to-blue-600/20",
+      "details": [
+        "Choose the type of bill that fits your customer’s requirement.",
+        "Estimation Bill: Gives a rough idea of cost before purchase.",
+        "Retail Bill: A standard bill without GST details.",
+        "GST Bill: A full bill with GST details for customers who request it."
+      ]
+    },
+    {
+      "title": "Smart Payment",
+      "description": "Collect payments instantly with auto-generated UPI QR codes for each transaction.",
+      "icon": "Zap",
+      "color": "from-green-500 to-green-600",
+      "bgColor": "from-green-500/20 to-green-600/20",
+      "details": [
+        "A UPI QR code is automatically created based on the total bill amount.",
+        "Customers can simply scan the QR code on their phone and pay instantly."
+      ]
+    },
+    {
+      "title": "Sales & Stock Management",
+      "description": "Keep track of every sale with customer details and get real-time stock updates automatically.",
+      "icon": "Monitor",
+      "color": "from-purple-500 to-purple-600",
+      "bgColor": "from-purple-500/20 to-purple-600/20",
+      "details": [
+        "Each sale is recorded with customer name, item details, date, and time automatically.",
+        "The sold item is removed from stock instantly so you always know your current inventory."
+      ]
+    },
+    {
+      "title": "Returns",
+      "description": "Easily manage returns and keep your inventory accurate with automatic stock adjustments.",
+      "icon": "Smartphone",
+      "color": "from-red-500 to-red-600",
+      "bgColor": "from-red-500/20 to-red-600/20",
+      "details": [
+        "If a customer returns an item, just mark it as returned in the system.",
+        "The item is automatically added back to your stock so inventory remains correct."
+      ]
+    }
+  ]
+},
     {
       title: "Transaction Processing",
       description: "Streamlined gold transactions and billing",
