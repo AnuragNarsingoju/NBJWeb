@@ -11,7 +11,7 @@ const Screenshots = () => {
     {
   "title": "Gold Management System",
   "description": "A simple and complete solution to manage gold stock, sales, purchases, billing, and payments all in one place.",
-  "icon": "Star",
+  "icon": Star,
   "color": "from-yellow-500 to-yellow-600",
   "bgColor": "from-yellow-500/20 to-yellow-600/20",
   "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -19,7 +19,7 @@ const Screenshots = () => {
     {
       "title": "Gold Entry",
       "description": "Add gold items quickly using barcode scanning or enter details manually with full control over pricing and charges.",
-      "icon": "Star",
+      "icon": Star,
       "color": "from-yellow-500 to-yellow-600",
       "bgColor": "from-yellow-500/20 to-yellow-600/20",
       "details": [
@@ -31,7 +31,7 @@ const Screenshots = () => {
     {
       "title": "Old Gold Purchase",
       "description": "Buy old gold from customers and adjust its value against their new purchase bill automatically.",
-      "icon": "Smartphone",
+      "icon": Star,
       "color": "from-amber-500 to-amber-600",
       "bgColor": "from-amber-500/20 to-amber-600/20",
       "details": [
@@ -42,7 +42,7 @@ const Screenshots = () => {
     {
       "title": "Bills & Invoices",
       "description": "Easily generate the exact type of bill your customer needs – estimation, retail, or GST included.",
-      "icon": "Tablet",
+      "icon": Star,
       "color": "from-blue-500 to-blue-600",
       "bgColor": "from-blue-500/20 to-blue-600/20",
       "details": [
@@ -55,7 +55,7 @@ const Screenshots = () => {
     {
       "title": "Smart Payment",
       "description": "Collect payments instantly with auto-generated UPI QR codes for each transaction.",
-      "icon": "Zap",
+      "icon": Star,
       "color": "from-green-500 to-green-600",
       "bgColor": "from-green-500/20 to-green-600/20",
       "details": [
@@ -66,7 +66,7 @@ const Screenshots = () => {
     {
       "title": "Sales & Stock Management",
       "description": "Keep track of every sale with customer details and get real-time stock updates automatically.",
-      "icon": "Monitor",
+      "icon": Star,
       "color": "from-purple-500 to-purple-600",
       "bgColor": "from-purple-500/20 to-purple-600/20",
       "details": [
@@ -77,7 +77,7 @@ const Screenshots = () => {
     {
       "title": "Returns",
       "description": "Easily manage returns and keep your inventory accurate with automatic stock adjustments.",
-      "icon": "Smartphone",
+      "icon": Star,
       "color": "from-red-500 to-red-600",
       "bgColor": "from-red-500/20 to-red-600/20",
       "details": [
