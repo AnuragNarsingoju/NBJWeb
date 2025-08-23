@@ -348,6 +348,7 @@ const Screenshots = () => {
         }
       `}</style>
       <section 
+        id="screenshots"
         ref={sectionRef} 
         className="relative h-[500vh] bg-black"
       >
