@@ -176,9 +176,9 @@ const Hero = () => {
               transform: `translateY(${scrollY * -20}px)`
             }}
           >
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-2xl hover-lift shadow-2xl overflow-hidden">
+           <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-2xl hover-lift shadow-2xl overflow-hidden" onClick={() => window.location.href = '#contact'}>
               <span className="relative z-10 flex items-center text-lg">
-                Start Free Trial
+                Schedule a Demo
                 <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={24} />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
