@@ -450,7 +450,7 @@ const Screenshots = () => {
                                         <div className="relative z-10">
                                           {/* Feature header with icon and title */}
                                           <div className="flex items-start space-x-4 mb-4">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 scale-110 shadow-blue-400/30 transition-all duration-1000">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0 scale-110 shadow-blue-400/30 transition-all duration-1000">
                                               {item.icon ? 
                                                 React.createElement(item.icon, { className: "text-white", size: 24 }) :
                                                 <Star className="text-white" size={24} />
@@ -606,7 +606,7 @@ const Screenshots = () => {
                       {screenData.features && screenData.features.map((item, itemIndex) => (
                         <div key={itemIndex} className="w-full flex-shrink-0 px-2">
                           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-4 sm:mb-6">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg scale-110 shadow-blue-400/30 transition-all duration-1000">
+                            <div className="w-6 h-6 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg scale-110 shadow-blue-400/30 transition-all duration-1000">
                               {item.icon ? 
                                 React.createElement(item.icon, { className: "text-white", size: 20 }) :
                                 <Star className="text-white" size={20} />
