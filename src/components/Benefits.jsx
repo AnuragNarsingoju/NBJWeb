@@ -166,8 +166,6 @@ const Benefits = () => {
                   Schedule a Demo Now
                   <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={24} />
                 </span>
-                  <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={24} />
-                </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
               </button>
