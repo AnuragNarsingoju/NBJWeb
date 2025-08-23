@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, Gem, Sparkles, Star, ArrowRight } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const Contact = () => {
     message: ''
   });
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,9 +31,86 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_2uuosum'; 
+      const templateId = 'template_ocbgbdn'; 
+      const autoReplyTemplateId = 'template_b1ykowb';
+      const publicKey = '7YEVooWlld_9S2EQc'; 
+
+      // Prepare both email parameters
+      const mainEmailParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        to_name: 'NBJ Team',
+        reply_to: formData.email
+      };
+
+      const autoReplyParams = {
+        name: formData.name,
+        title: formData.message.substring(0, 50) + (formData.message.length > 50 ? '...' : ''),
+        to_email: formData.email,
+        from_name: 'Anurag',
+        from_email: 'contact@anuragnarsingoju.in',
+        reply_to: 'contact@anuragnarsingoju.in'
+      };
+
+      // Send both emails in parallel with timeout
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Email sending timeout')), 15000)
+      );
+
+      // Alternative approach: Use emailjs.send with explicit recipient configuration
+      const emailPromises = [
+        emailjs.send(serviceId, templateId, {
+          ...mainEmailParams,
+          to_email: 'contact@anuragnarsingoju.in'
+        }, publicKey),
+        emailjs.send(serviceId, autoReplyTemplateId, {
+          ...autoReplyParams,
+          to_email: formData.email
+        }, publicKey)
+      ];
+
+      // Wait for both emails to complete with timeout
+      const results = await Promise.race([
+        Promise.all(emailPromises),
+        timeoutPromise
+      ]);
+
+      // Check if main email was successful
+      if (results[0].status === 200) {
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+        
+        setSubmitStatus('success');
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      
+      // Provide specific error messages
+      if (error.message === 'Email sending timeout') {
+        setSubmitStatus('timeout');
+      } else {
+        setSubmitStatus('error');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -91,6 +171,26 @@ const Contact = () => {
                 <h3 className="text-3xl font-black text-white mb-8 text-center">
                   Send us a Message
                 </h3>
+                
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-2xl text-green-400 text-center">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-2xl text-red-400 text-center">
+                    Sorry! There was an error sending your message. Please try again.
+                  </div>
+                )}
+
+                {submitStatus === 'timeout' && (
+                  <div className="mb-6 p-4 bg-yellow-500/20 border border-yellow-500/30 rounded-2xl text-yellow-400 text-center">
+                    Your message is being sent. Please wait a moment and check your email for confirmation.
+                  </div>
+                )}
+                
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-blue-400 mb-3">
@@ -105,6 +205,7 @@ const Contact = () => {
                       className="w-full px-6 py-4 border-2 border-white/20 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent glass-effect text-white placeholder-gray-400 transition-all duration-300"
                       placeholder="Your full name"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -121,6 +222,7 @@ const Contact = () => {
                       className="w-full px-6 py-4 border-2 border-white/20 rounded-2xl focus:ring-2 focus:ring-purple-500 focus:border-transparent glass-effect text-white placeholder-gray-400 transition-all duration-300"
                       placeholder="your.email@example.com"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -136,6 +238,7 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-6 py-4 border-2 border-white/20 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-transparent glass-effect text-white placeholder-gray-400 transition-all duration-300"
                       placeholder="Your company name"
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -152,16 +255,27 @@ const Contact = () => {
                       className="w-full px-6 py-4 border-2 border-white/20 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent glass-effect text-white placeholder-gray-400 transition-all duration-300 resize-none"
                       placeholder="Tell us about your needs..."
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover-lift shadow-2xl group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover-lift shadow-2xl group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span className="flex items-center justify-center text-lg">
-                      <Send className="mr-3 group-hover:translate-x-1 transition-transform" size={20} />
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-3 group-hover:translate-x-1 transition-transform" size={20} />
+                          Send Message
+                        </>
+                      )}
                     </span>
                   </button>
                 </form>
@@ -190,7 +304,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-6">
                   <h4 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Email</h4>
-                  <p className="text-blue-400 text-lg font-medium">support@nbjshop.in</p>
+                  <p className="text-blue-400 text-lg font-medium">contact@anuragnarsingoju.in</p>
                 </div>
               </div>
 
@@ -201,22 +315,8 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="ml-6">
-                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Support Team</h4>
-                  <p className="text-green-400 text-lg font-medium">NBJ Shop Support Team</p>
-                </div>
-              </div>
-
-              <div className="flex items-start group">
-                <div className="flex-shrink-0">
-                  <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <MapPin className="text-white" size={28} />
-                  </div>
-                </div>
-                <div className="ml-6">
-                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">System Access</h4>
-                  <p className="text-purple-400 text-lg font-medium leading-relaxed">
-                    Contact your system administrator for access to the NBJ Jewelry Management System
-                  </p>
+                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Phone</h4>
+                  <p className="text-green-400 text-lg font-medium">+91 7660066656</p>
                 </div>
               </div>
             </div>
@@ -227,8 +327,7 @@ const Contact = () => {
               <div className="relative z-10">
                 <h4 className="text-2xl font-bold text-white mb-4 text-center">Business Hours</h4>
                 <p className="text-gray-300 text-center leading-relaxed">
-                  Our support team is available during business hours to assist you with any questions 
-                  about our jewelry management system.
+                  9am - 9pm
                 </p>
               </div>
             </div>
