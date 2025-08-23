@@ -161,9 +161,11 @@ const Benefits = () => {
               <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
                 Join jewelry businesses already using our system to boost their success and efficiency.
               </p>
-              <button className="group bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-lg hover-lift shadow-2xl overflow-hidden relative">
+              <button className="group bg-white text-blue-600 px-12 py-6 rounded-2xl font-bold text-lg hover-lift shadow-2xl overflow-hidden relative" onClick={() => window.location.href = '#contact'}>
                 <span className="relative z-10 flex items-center">
-                  Start Your Free Trial
+                  Schedule a Demo Now
+                  <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={24} />
+                </span>
                   <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={24} />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity"></div>
