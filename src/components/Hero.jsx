@@ -185,7 +185,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
             </button>
             
-            <button className="px-10 py-5 border-2 border-white/20 text-white font-bold rounded-2xl hover-lift glass-effect backdrop-blur-xl group">
+            <button className="px-10 py-5 border-2 border-white/20 text-white font-bold rounded-2xl hover-lift glass-effect backdrop-blur-xl group" onClick={() => window.location.href = '#screenshots'}>
               <span className="flex items-center">
                 <Zap className="mr-3 group-hover:scale-110 transition-transform" size={20} />
                 Watch Demo
